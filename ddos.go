@@ -44,7 +44,7 @@ func main() {
 }
 
 func startFlood(url string) {
-	min := 0
+	min := 99
 	max := len(userAgents)
 	num := rand.Intn(max - min) + min
 	userAgent := userAgents[num]
