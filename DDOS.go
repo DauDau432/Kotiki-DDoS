@@ -152,7 +152,7 @@ func startFlood(url string) {
     req = req.WithContext(ctx)
 
     client := http.DefaultClient
-    for i := 0; i < 300; i++ {
+    for i := 0; i < 100; i++ {
       client.Do(req)
     }
   }
